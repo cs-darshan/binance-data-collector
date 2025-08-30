@@ -300,3 +300,4 @@ This project is provided as-is for educational and research purposes.
 
 This application collects market data only and does not place trades or access your Binance account. Always comply with Binance's API terms of service.
 # Binance-Data-Collector
+# Binance-Data-Collector
