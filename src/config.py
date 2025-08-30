@@ -23,8 +23,8 @@ DATA_DIR = os.getenv('DATA_DIR', 'data')
 LOG_LEVEL = os.getenv('LOG_LEVEL', 'INFO')  # DEBUG, INFO, WARNING, ERROR
 
 # Performance Configuration
-BUFFER_SIZE = 1000  # Maximum number of trades to keep in memory
-CLEANUP_INTERVAL = 300  # Clean up old data every 5 minutes
+BUFFER_SIZE = 100000  # Maximum number of trades to keep in memory
+CLEANUP_INTERVAL = 3000000  # Clean up old data every 5 minutes
 
 # Update main configuration
 CONFIG = {
