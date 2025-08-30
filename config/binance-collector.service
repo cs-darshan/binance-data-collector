@@ -1,0 +1,31 @@
+[Unit]
+Description=Binance Data Collector Service
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+User=binance
+WorkingDirectory=/opt/binance-data-collector
+ExecStart=/opt/binance-data-collector/venv/bin/python /opt/binance-data-collector/src/binance_data_collector.py
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=binance-collector
+
+# Environment variables
+Environment=PYTHONPATH=/opt/binance-data-collector/src
+Environment=OUTPUT_FORMAT=csv
+Environment=LOG_LEVEL=INFO
+Environment=DATA_DIR=/opt/binance-data-collector/data
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/binance-data-collector/data
+
+[Install]
+WantedBy=multi-user.target
